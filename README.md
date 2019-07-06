@@ -6,7 +6,7 @@ In addition to apps, it can also launch system preferences, just like Alfred.
 
 To use, type `M-x helm-osx-app`.
 
-## Requirements
+## Requirement
 
 - Emacs >= 25.1 for its builtin `seq` library
 
@@ -51,3 +51,6 @@ touch foo bar && open -R foo bar
 
 reveals ONLY `bar`.
 
+## Alternative
+
+- [counsel-osx-app](https://github.com/d12frosted/counsel-osx-app)
