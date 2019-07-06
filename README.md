@@ -33,8 +33,13 @@ Actions for `helm-osx-app`. Defaults to
 - Open
 - Reveal file in Finder
 
-However, if you've marked multiple candidates, reveal only works for the last
-candidate. It seems a bug of Apple's `open(1)`, the manual page says
+#### A bug with `open -R`?
+
+The "Reveal file in Finder" action usess `open -R` to reveal files.
+
+However, if you've marked multiple candidates, "Reveal file in Finder" works for
+only the last candidate. It seems a bug of Apple's `open(1)`, the manual page
+says
 
 > -R  Reveals the file(s) in the Finder instead of opening them.
 
