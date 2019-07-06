@@ -13,4 +13,5 @@ install:
   - export PATH="/tmp/emacs-$EMACS_VERSION/bin:$PATH"
 
 script:
-  - emacs -Q --batch -L . --eval "(setq byte-compile-error-on-warn t)" -f batch-byte-compile *.el
+  - emacs -Q --batch -l package --eval '(push (cons "melpa" "http://melpa.org/packages/") package-archives)' -f package-initialize -f package-refresh-contents --eval "(package-install 'helm-core)"
+  - emacs -Q --batch -f package-initialize -L . --eval "(setq byte-compile-error-on-warn t)" -f batch-byte-compile *.el
