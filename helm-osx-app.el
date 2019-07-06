@@ -93,8 +93,11 @@
   (interactive)
   (helm
    :sources
-   (helm-build-sync-source "Launch macOS apps"
+   (helm-build-sync-source "macOS apps"
      :candidates #'helm-osx-app-candidates
+     :filtered-candidate-transformer
+     (and (bound-and-true-p helm-adaptive-mode)
+          '(helm-adaptive-sort))
      :action helm-osx-app-actions)
    :buffer "*helm osx app*"))
 
