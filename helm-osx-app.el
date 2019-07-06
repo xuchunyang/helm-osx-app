@@ -29,7 +29,6 @@
 
 (require 'helm)
 (require 'seq)
-(eval-when-compile (require 'rx))       ; The `rx' pattern of pcase
 
 (defgroup helm-osx-app nil
   "Launch macOS apps with Helm."
@@ -65,10 +64,14 @@
   "Return *.app in FOLDER recursively."
   (seq-mapcat
    (lambda (file)
-     (pcase file
-       ((rx "/" (or "." "..") eos))
-       ((rx ".app" eos) (list file))
-       ((pred file-directory-p) (helm-osx-app-get-apps file))))
+     (cond
+      ((string-match (rx "/" (or "." "..") eos) file)
+       nil)
+      ((string-match (rx ".app" eos) file)
+       (list file))
+      ((file-directory-p file)
+       (helm-osx-app-get-apps file))
+      (t nil)))
    (directory-files folder 'full)))
 
 (defun helm-osx-app-get-prefs (folder)
