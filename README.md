@@ -1,4 +1,5 @@
 # Launch macOS apps with Helm
+[![Build Status](https://travis-ci.org/xuchunyang/helm-osx-app.svg?branch=master)](https://travis-ci.org/xuchunyang/helm-osx-app)
 
 In addition to apps, it can also launch system preferences, just like Alfred.
 
