@@ -79,6 +79,7 @@
   (directory-files folder 'full (rx ".prefPane" eos)))
 
 (defun helm-osx-app-candidates ()
+  "Build helm candidates for `helm-osx-app'."
   (nconc
    (seq-mapcat
     #'helm-osx-app-get-apps
